@@ -43,3 +43,22 @@
 	width:auto;
 	height:auto;
 }
+
+.btn_actualizar
+{
+	color: #333;
+	background: #fff;
+	height: 45px;
+}
+
+.btn_actualizar:hover
+{
+	color: #ff3322;
+}
+
+.contenador_canvas
+{
+	background: #fff;
+	height:45px;
+	width:150px
+}

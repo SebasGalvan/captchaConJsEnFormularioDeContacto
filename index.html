@@ -6,7 +6,7 @@
     <title>Formulario de contacto validado y procesado</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" href="estilosMios.css">
-    <script src="validar.js"></script>
+
 </head>
 
 <body class="bg-success">
@@ -18,10 +18,14 @@
                     <div class="container">
                         <div class="row justify-content-center">
                            <div class="row justify-content-center">
-                            <div style="max-width:550px;min-width:370px;padding:10px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 paddingOk formatoCatcha">
+                            <div style="max-width:700px;min-width:370px;padding:10px; display: inline-flex; align-items: center;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 paddingOk formatoCatcha">
                            
-                                 <input type="number" id="catcha" name="catcha" placeholder="Chatcha" class="estiloInput" value="">
-                                 <img style="margin-top:-4px;" src="imgCatcha.jpg" alt="catcha" class="imgDelCatcha">
+                                 <input type="text" id="catcha" name="catcha" placeholder="Chatcha" class="estiloInput" value="">
+                                 <!-- El TAG "Canvas dibuja sobre el HTML, no permite copiar y pegar" -->
+                                 <div class = "contenador_canvas">
+                                     <canvas width="300" height="30px" t id="canvas_capcha"></canvas>
+                                 </div>
+                                 <ion-icon name="reload-outline" id="alcualizar_clave" class="btn_actualizar"></ion-icon>
 
                              </div>
                            </div>
@@ -30,15 +34,15 @@
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 paddingOk">
                             <div class="row justify-content-center">
                                     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6 paddingOk">
-                                    <p id="errorCatcha" class="ocultar">No ha Ingresado el número del catcha, es obligatorio hacerlo.</p>
-                                    <p id="errorCatchaIngresoErroneo" class="ocultar">Ah ingresado el número incorrecto en el catcha, intente nuevamente.</p>
-                                    <p id="okCatchaOk" class="ocultar">Es correcto, en unos segundos se enviará el formulario, gracias.</p>
+                                    <p id="errorCatcha" hidden=true>No ha Ingresado la clave del catcha, es obligatorio hacerlo.</p>
+                                    <p id="errorCatchaIngresoErroneo" hidden=true>Ah ingresado una clave incorrecta, intente nuevamente.</p>
+                                    <p id="okCatchaOk" hidden=true>Es correcto, en unos segundos se enviará el formulario, gracias.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
-                                <input type="submit" id="envar" name="enviar" class="btn btn-dark" value="Envíar Formulario">
+                                <input type="submit" id="enviar" name="enviar" class="btn btn-dark" value="Envíar Formulario">
                             </div>
 
                         </div>
@@ -46,7 +50,18 @@
                 </form>
             </div>
 
-        </div>
+        </div> 
+       
     </div>
+
+
+    <script src="validar.js"></script>
+
+
+
+    <!--Para el icono -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+   
 </body>
 </html>
