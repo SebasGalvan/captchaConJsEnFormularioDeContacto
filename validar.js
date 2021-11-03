@@ -1,36 +1,35 @@
 var claveHash = "";
-cargarClave();
 
 const actualizar = document.querySelector('#alcualizar_clave');
 const enviar = document.querySelector('#enviar');
+const formulario = document.querySelector('#formularioContacto');
 
+window.addEventListener("load", cargarClave);
 actualizar.addEventListener('click', cargarClave);
-enviar.addEventListener('click', validar);
+formulario.addEventListener('onSubmit', validar);
 
 function validar(e) {
     e.preventDefault();
 
 
-
     const catcha = document.querySelector('#catcha');
-
-    const valor = catcha.value
+    const valor = catcha.value;
 
     if (valor === "") {   
         const errorCatcha = document.querySelector('#errorCatcha');
         errorCatcha.hidden = false;
+        console.log("Vacio");
         setTimeout(() => {
             errorCatcha.hidden = true;
             limpiarCaptcha(catcha);
-            cargarClave();
+            cargarClave();   
         }, 5000);
-
-
     } else {
         
         const clave_enviada = hashear(valor.trim());
 
         if (clave_enviada === claveHash) {
+            console.log("Bien") ;
 
             const errorCatcha = document.querySelector('#okCatchaOk');
             errorCatcha.hidden = false;
@@ -38,20 +37,24 @@ function validar(e) {
                 errorCatcha.hidden = true;
                 limpiarCaptcha(catcha);
                 cargarClave();
+                formulario.submit()
             }, 5000);
 
         }else{
 
             const errorCatcha = document.querySelector('#errorCatchaIngresoErroneo');
             errorCatcha.hidden = false;
+            console.log("Erros pasando Ingreso Incorrecto") ;
             setTimeout(() => {
                 errorCatcha.hidden = true;
                 limpiarCaptcha(catcha);
                 cargarClave();
+                
             }, 5000);
 
         }
     }
+
 }
 
 function limpiarCaptcha(captcha){
